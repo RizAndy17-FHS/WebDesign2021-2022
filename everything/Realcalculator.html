@@ -1,0 +1,223 @@
+<!doctype html>
+<html>
+
+<!-- Head Section is all nonvisible elements-->
+<head>
+
+    <!-- All inpage style goes here-->
+    <style>
+        :root {
+            --mainbg: #d8d8d8;
+            --headercolor: #ffffff;
+            --navcolor:#001d3d;
+            --navtext: #ffffff;
+            --footercolor: #4a4b4a;
+        }
+        * {
+            margin: auto;
+            box-sizing: border-box;
+        }
+
+        header {
+            background:white;
+            padding: 1rem;
+            color:black;
+        }
+        nav {
+            background: black;
+            color: white;
+            padding: 1rem;
+            margin-bottom:1rem;
+        }
+        footer {
+            background: black;
+            color: white;
+            padding: 1rem;
+            min-height: 12vh;
+            margin-top:1rem;
+        }
+        .container {
+            width: 94%;
+            margin: auto;
+            background: white;
+            min-height: 70vh;
+        }
+        .row {
+            display: flex;
+            flex-flow: row;
+            width:100%;
+            justify-content: center;
+            padding: 2rem;
+            gap: 1rem;
+        }
+        .row-item0 {
+            
+            padding: 1rem;
+            background: white;
+            border:solid 0.15rem #cacaca;
+            border-radius:1rem;
+            max-width:75%;
+            min-width:50%;
+        }
+        .row-item1 {
+            padding: 1rem;
+            background: white;
+            display:flex;
+            flex-wrap: wrap;
+            gap:.5rem;
+
+            
+        }
+        .row-item0 input, button {
+            display: block;
+            margin: auto;
+            font-size: 1.25rem;
+            padding: .25rem;
+            
+        }
+        body {
+          background:grey;
+        }
+        button {
+            width: 45%;
+            margin: 1rem auto;
+            border: 1px solid black;
+            border-radius: 0.5rem;
+        }
+        .display {
+            min-height: 12vh;
+            width: 100%;
+            margin: auto;
+            border: 1px solid lightgrey;
+            font-size: 1.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .row-item4 {
+            display:flexbox;
+        }
+    </style>
+
+    <!-- All LINK tags go here-->
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Calculator</title>
+
+</head>
+
+<!-- Body Section is all visible elements-->
+<body>
+
+    <header>
+        Header
+    </header>
+    <nav>
+        Nav
+    </nav>
+    
+    <!-- Main page body here. Use container or DIV -->
+    
+    <div class="container">
+
+        <div class="row">
+
+            <div class="row-item0">
+              
+                <div class="display">
+                    <p id="dbox">
+                        0
+                    </p>
+                </div>
+                
+                <form name="myform">
+                    <input style="min-width: 90%; margin:auto; margin-top:1rem" type="number" name="n1" placeholder="Enter a number">
+                    <input style="min-width: 90% ; margin:auto; margin-top:1rem;" type="number" name="n2" placeholder="Enter another number">
+                </form>
+                
+                <div class="row-item1">
+                <button name="Add" onclick="add()">Add</button>
+                <button name="Subtract" onclick="subtract()">Subtract</button>
+                <button name="Multiply" onclick="multiply()">Multiply</button>
+                <button name="Divide" onclick="divide()">Divide</button>
+                
+                </div>
+                
+                    <button style="min-width: 80%;" name="clear" onclick="clearDisplay()">Clear</button>
+                
+            </div>
+            
+            
+            
+
+
+
+
+        </div>
+
+
+
+
+    </div>
+
+
+
+    <footer>
+        Footer
+    </footer>
+
+
+
+
+
+
+
+    <!-- JavaScript Goes Here -->
+
+    <script>
+
+        function clearDisplay() {
+            document.getElementById('dbox').innerHTML = '0';
+        }
+
+        function add() {
+            var n1 = Number(document.forms["myform"]["n1"].value);
+            var n2 = Number(document.forms["myform"]["n2"].value);
+            answer = n1 + n2;
+
+            document.getElementById('dbox').innerHTML = answer;
+        }
+                function subtract() {
+            var n1 = Number(document.forms["myform"]["n1"].value);
+            var n2 = Number(document.forms["myform"]["n2"].value);
+            answer = n1 - n2;
+
+            document.getElementById('dbox').innerHTML = answer;
+        }
+                function multiply() {
+            var n1 = Number(document.forms["myform"]["n1"].value);
+            var n2 = Number(document.forms["myform"]["n2"].value);
+            answer = n1 * n2;
+
+            document.getElementById('dbox').innerHTML = answer;
+        }
+                function divide() {
+            var n1 = Number(document.forms["myform"]["n1"].value);
+            var n2 = Number(document.forms["myform"]["n2"].value);
+            answer = n1 / n2;
+
+            document.getElementById('dbox').innerHTML = answer;
+        }
+        
+
+
+    </script>
+
+
+
+
+
+</body>
+</html>
