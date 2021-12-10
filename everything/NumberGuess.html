@@ -1,0 +1,237 @@
+<!doctype html>
+<html>
+
+<!-- Head Section is all nonvisible elements-->
+<head>
+
+    <!-- All inpage style goes here-->
+    <style>
+:root {
+            --mainbg: #d8d8d8;
+            --headercolor: #ffffff;
+            --navcolor:#001d3d;
+            --navtext: #ffffff;
+            --footercolor: #4a4b4a;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        header {
+            background: var(--headercolor);
+            padding: 1rem;
+            
+        }
+        nav {
+            background: var(--navcolor);
+            color: var(--navtext);
+            padding: 1rem;
+        }
+        footer {
+            background: var(--footercolor);
+            color: var(--navtext);
+            padding: 1rem;
+            min-height: 12vh;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            background: var(--mainbg);
+            min-height: 70vh;
+        }
+        .hide {
+          display:none;
+        }
+        .show {
+          display:block;
+          
+        }
+        header h1{
+          text-align:center;
+        
+        }
+        .container h2 {
+          text-align:center;
+          font-size:2rem;
+          padding:1.25rem;
+        }
+        .displayWindow {
+          width:90%;
+          margin:auto;
+          background-color:white;
+          padding:2vw;
+          display: flex;
+          justify-content: center;
+          flex-flow: row nowrap;
+          min-height:40vh;
+        }
+        .messageWindow, .inputPane {
+          flex-basis:50%;
+          padding:1vw;
+        }
+        .messageWindow p {
+          border:1px black solid;
+          height:100%;
+          padding:1rem;
+          font-size:1.25rem;
+          line-height:2.25rem;
+        }
+        input, button {
+          display:block;
+          margin: 0.5rem;
+          padding: 0.5rem;
+        }
+        input[type=text]{
+          width:100%;
+        }
+        button {
+        width: 60%;
+        margin: 0.5rem auto;
+        }
+
+
+
+    </style>
+
+    <!-- All LINK tags go here-->
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Number Guess</title>
+
+</head>
+
+<!-- Body Section is all visible elements-->
+<body>
+
+    <header>
+        <h1>JS Number Guess Program</h1>
+        
+    </header>
+    <nav>
+        Nav
+    </nav>
+    <!-- Main page body here. Use container or DIV -->
+
+    <div class="container">
+    
+      <h2>Welcome to the number guess game</h2>
+      
+      <div class="displayWindow">
+        
+        
+        
+        
+        
+        <div class="messageWindow">
+          <p id="msg">
+            
+            ---
+            
+          </p>
+        </div>
+        
+        
+        
+        <div class="inputPane">
+          
+          
+          <form name="userInputs">
+            
+            <input type="text" id="userName" name="userName" placeholder="Enter Name Here">
+            <input type="text" id="guess" name="guess" placeholder="Enter Guess Here">
+            
+          </form> <!-- End of userInputs -->
+          
+          <button id="processName" onclick="processName()">Continue</button>
+          
+          <button id="processGuess" onclick="processGuess()">Enter Your Guess</button>
+          
+        </div> <!-- End of Input Pane -->
+        
+      </div><!-- End of Display Window -->
+    
+
+
+    </div>
+    <footer>
+        Footer
+    </footer>
+
+
+    <!-- JavaScript Goes Here -->
+<script>
+  
+  const continueBtn = document.getElementById("processName");
+  const guessBtn = document.getElementById("processGuess");
+  
+  const msgWindow = document.getElementById("msg");
+  var nameText = "";
+  var guess = 0;
+  var guessNumber = 0;
+  
+  var randNumber = Math.floor(Math.random() * 10) + 1;
+  var msg = "";
+  
+  guessBtn.classList.add("hide");
+  document.getElementById("guess").classList.add("hide");
+  
+  msg = "Welcome, please enter your name in the box to the right.";
+  msgWindow.innerHTML = msg;
+  
+  
+  
+  function processName() {
+    nameText = document.forms[0].elements[0].value;
+    
+    msg = nameText + ", welcome. Please guess a number between 1 and 10";
+    msgWindow.innerHTML = msg;
+    
+    guessBtn.classList.add("show");
+    continueBtn.classList.remove("show");
+    continueBtn.classList.add("hide");
+    
+    document.getElementById("guess").classList.remove("hide");
+    document.getElementById("userName").classList.add("hide");
+
+  }
+  
+  function processGuess() {
+    
+    guess = parseInt(document.forms[0].elements[1].value);
+    guessNumber += 1;
+    
+    if(guessNumber > 3 && randNumber != guess){
+      msg = nameText + ", you're out of guesses.";
+      msg += "<br><br>The number is " + randNumber;
+      msg+= "thanks for playing.";
+      guessBtn.classList.add("hide");
+      guessBtn.classList.remove("show");
+      
+    }else if(randNumber == guess){
+      msg = nameText + ", congrats! you are correct.";
+      msg+= "<br>You guesed correctly in " + guessNumber + " guesses.";
+      msg += "<br><br>The number is " + randNumber;
+      
+      msgWindow.innerHTML = msg;
+      guessBtn.classList.add("hide");
+      guessBtn.classList.remove("show");
+    }else {
+      msg = nameText + ", for guess number " + guessNumber + ", you chose " + guess +".";
+      msg += "<br><br>You have " + (3-guessNumber) + " guesses remaining.";
+      
+      msgWindow.innerHTML = msg;
+      
+      document.forms[0].elements[1].value = "";
+      
+    }
+  }
+  
+  
+  
+  
+</script>
+
+</body>
+</html>
