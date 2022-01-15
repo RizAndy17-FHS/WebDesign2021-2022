@@ -2,12 +2,9 @@
               margin: 0;
               padding: 0;
               box-sizing: border-box;
-          }a
-          
-          header h1 {
-              margin:auto;
-              align:center;
           }
+          
+          
           header {
               background: lightgrey;
               padding: 1rem;
