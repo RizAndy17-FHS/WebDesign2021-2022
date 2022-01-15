@@ -11,7 +11,7 @@
               text-align:center;
           }
           nav {
-              background: darkblue;
+              background: #272838;
               color: #ffffff;
               padding: 1rem;
               display:flex;
@@ -29,7 +29,7 @@
           }
           
           footer {
-              background: darkblue;
+              background: #272838;
               color: #ffffff;
               padding: 1rem;
               min-height: 12vh;
