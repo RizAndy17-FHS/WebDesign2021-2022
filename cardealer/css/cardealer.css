@@ -51,7 +51,6 @@
             min-height: 12vh;
         }
         .container {
-            width: 80%;
             margin: auto;
             background: var(--mainbg);
             min-height: 70vh;
@@ -140,8 +139,19 @@
           padding:2vh;
         }
         
+        /*contact page*/
         
+        .contact-row {
+          width:80%;
+          max-width:1100px;
+          margin:3vh auto;
+        }
         
+        .contact-row .cta-button {
+          font-size:1rem;
+          padding:1rem;
+          max-width:50%;
+        }
         
         
         
